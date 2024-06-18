@@ -41,9 +41,15 @@ jobs:
         push: true
         tags: your-dockerhub-username/uber-like-app-backend:latest
 
-    - name: Deploy to Kubernetes
-      uses: actions-hub/kubectl@v1
+    - name: Set up KUBECONFIG
+      run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
       with:
-        kubectl_version: '1.14'
-        kubeconfig: ${{ secrets.KUBECONFIG }}
-        command: apply -f kubernetes/
+        version: 'latest'
+
+    - name: Deploy to Kubernetes
+      run: kubectl apply -f kubernetes/
