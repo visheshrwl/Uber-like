@@ -47,9 +47,9 @@ jobs:
         echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
 
     - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
+      uses: actions-hub/kubectl@master
       with:
-        version: 'latest'
+        args: get pods
 
     - name: Deploy to Kubernetes
       run: kubectl apply -f kubernetes/

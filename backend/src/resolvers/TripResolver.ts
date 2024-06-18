@@ -1,5 +1,5 @@
 import { Resolver, Query, Mutation, Arg } from "type-graphql";
-import { Trip } from "../entity/Trip";
+import { Trip } from "../entity/Ride";
 
 @Resolver()
 export class TripResolver {

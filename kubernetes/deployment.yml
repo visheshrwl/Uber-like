@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: your-dockerhub-username/uber-like-app-frontend:latest
+        image: visheshrwl/uber-like-app-frontend:latest
         ports:
         - containerPort: 80
 
@@ -35,6 +35,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: your-dockerhub-username/uber-like-app-backend:latest
+        image: visheshrwl/uber-like-app-backend:latest
         ports:
         - containerPort: 8080
