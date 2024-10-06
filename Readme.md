@@ -73,3 +73,5 @@ Contributions are welcome! Please Submit pull requests or issues as needed.
 - **Security**: Regularly audit the codebase for security vulnerabilities.
 
 By following these steps, you will set up a comprehensive repository with all the necessary components for the project, including a CI/CD pipeline, Docker configuration, and Kubernetes deployment files. This will ensure a robust, scalable, and maintainable application architecture.
+
+![](https://komarev.com/ghpvc/?username=visheshrwl)
