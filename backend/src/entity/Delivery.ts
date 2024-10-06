@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { User } from './User';
 import { Booking } from './Booking';
 
@@ -22,10 +30,10 @@ export class Delivery {
   @Column()
   status: string;
 
-  @ManyToOne(() => User, user => user.deliveries)
+  @ManyToOne(() => User, (user) => user.deliveries)
   user: User;
 
-  @OneToMany(() => Booking, booking => booking.delivery)
+  @OneToMany(() => Booking, (booking) => booking.delivery)
   bookings: Booking[];
 
   @CreateDateColumn()
@@ -34,7 +42,15 @@ export class Delivery {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  constructor(id: number, pickupLocation: string, dropoffLocation: string, packageDetails: string, deliveryFee: number, status: string, user: User) {
+  constructor(
+    id: number,
+    pickupLocation: string,
+    dropoffLocation: string,
+    packageDetails: string,
+    deliveryFee: number,
+    status: string,
+    user: User,
+  ) {
     this.id = id;
     this.pickupLocation = pickupLocation;
     this.dropoffLocation = dropoffLocation;

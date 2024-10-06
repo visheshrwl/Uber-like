@@ -16,7 +16,11 @@ export class UserResolver {
   }
 
   @Mutation(() => User)
-  async createUser(@Arg('name') name: string, @Arg('email') email: string, @Arg('password') password: string): Promise<User> {
+  async createUser(
+    @Arg('name') name: string,
+    @Arg('email') email: string,
+    @Arg('password') password: string,
+  ): Promise<User> {
     const user = await this.userRepository.createUser(name, email, password);
     return user;
   }

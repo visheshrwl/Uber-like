@@ -17,4 +17,6 @@ export const PORT = process.env.PORT || 4000;
 export const MAX_UPLOAD_SIZE = 10 * 1024 * 1024; // 10MB
 
 // Example of Environment-specific Configuration
-export const API_URL = __prod__ ? 'https://api.production.com' : 'http://localhost:3000';
+export const API_URL = __prod__
+  ? 'https://api.production.com'
+  : 'http://localhost:3000';

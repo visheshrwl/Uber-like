@@ -1,5 +1,5 @@
-import { Resolver, Query, Mutation, Arg } from "type-graphql";
-import { Trip } from "../entity/Ride";
+import { Resolver, Query, Mutation, Arg } from 'type-graphql';
+import { Trip } from '../entity/Ride';
 
 @Resolver()
 export class TripResolver {
@@ -9,7 +9,10 @@ export class TripResolver {
   }
 
   @Mutation(() => Trip)
-  async createTrip(@Arg("origin") origin: string, @Arg("destination") destination: string) {
+  async createTrip(
+    @Arg('origin') origin: string,
+    @Arg('destination') destination: string,
+  ) {
     const trip = new Trip();
     trip.origin = origin;
     trip.destination = destination;
