@@ -31,7 +31,3 @@ jobs:
       - name: Run Prettier Check
         working-directory: ./backend
         run: npm run prettier:check
-
-      - name: Run Prettier Fix (optional)
-        working-directory: ./backend
-        run: npm run prettier:fix
