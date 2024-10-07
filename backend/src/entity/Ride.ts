@@ -28,10 +28,10 @@ export class Ride {
   status: string;
 
   @Column({ nullable: true })
-  trafficDuration: string;  // Duration of the trip with real-time traffic
+  trafficDuration?: string;
 
   @Column({ nullable: true })
-  distance: string;  // Distance of the trip route
+  distance?: string;
 
   @ManyToOne(() => User, (user) => user.rides)
   user: User;
@@ -53,7 +53,7 @@ export class Ride {
     status: string,
     user: User,
     trafficDuration?: string,
-    distance?: string,
+    distance?: string
   ) {
     this.id = id;
     this.pickupLocation = pickupLocation;
