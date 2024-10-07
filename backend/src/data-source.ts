@@ -4,6 +4,7 @@ import { Ride } from './entity/Ride';
 import { Delivery } from './entity/Delivery';
 import { Booking } from './entity/Booking';
 import { __prod__ } from './constants';
+import { HealthCheck } from './entity/healthCheck'; // Use a consistent naming convention
 
 const AppDataSource = new DataSource({
   type: 'postgres',
@@ -12,9 +13,9 @@ const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
   database: process.env.DB_NAME || 'uber_like_app',
-  synchronize: !__prod__, // true in development, false in production
-  logging: !__prod__, // true in development, false in production
-  entities: [User, Ride, Delivery, Booking],
+  synchronize: !__prod__,
+  logging: !__prod__,
+  entities: [User, Ride, Delivery, Booking, HealthCheck], // Ensure HealthCheck is referenced correctly
   migrations: ['./migrations/*.ts'],
   subscribers: [],
 });
