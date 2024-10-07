@@ -61,9 +61,10 @@ docker-compose up --build
 kubectl apply -f kubernetes/
 ```
 
-### Contributing 
+### Our Valuable Contributors
+[![Contributors](https://contrib.rocks/image?repo=visheshrwl/Uber-like)](https://github.com/visheshrwl/Uber-like/graphs/contributors)
 
-Contributions are welcome! Please Submit pull requests or issues as needed.
+---
 
 
 ### 10. Additional Recommendations
