@@ -27,6 +27,12 @@ export class Ride {
   @Column()
   status: string;
 
+  @Column({ nullable: true })
+  trafficDuration?: string;
+
+  @Column({ nullable: true })
+  distance?: string;
+
   @ManyToOne(() => User, (user) => user.rides)
   user: User;
 
@@ -46,6 +52,8 @@ export class Ride {
     fare: number,
     status: string,
     user: User,
+    trafficDuration?: string,
+    distance?: string
   ) {
     this.id = id;
     this.pickupLocation = pickupLocation;
@@ -53,6 +61,8 @@ export class Ride {
     this.fare = fare;
     this.status = status;
     this.user = user;
+    this.trafficDuration = trafficDuration || '';
+    this.distance = distance || '';
     this.createdAt = new Date();
     this.updatedAt = new Date();
     this.bookings = [];
