@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: uber-like-app-frontend
 spec:
@@ -17,10 +17,25 @@ spec:
         image: visheshrwl/uber-like-app-frontend:latest
         ports:
         - containerPort: 80
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: {}
+      - setWeight: 100
+      - pause: {}
+      analysis:
+        templates:
+        - templateName: frontend-analysis
+        interval: 1m
+        maxRetries: 3
+        failureCondition: 
+          - errorRate > 0.1
 
 ---
-apiVersion: apps/v1
-kind: Deployment
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: uber-like-app-backend
 spec:
@@ -38,3 +53,17 @@ spec:
         image: visheshrwl/uber-like-app-backend:latest
         ports:
         - containerPort: 8080
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: {}
+      - setWeight: 100
+      - pause: {}
+      analysis:
+        templates:
+        - templateName: backend-analysis
+        interval: 1m
+        maxRetries: 3
+        failureCondition: 
+          - errorRate > 0.1
