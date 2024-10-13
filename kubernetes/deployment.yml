@@ -1,69 +1,64 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: uber-like-app-frontend
+  name: uber-like-app-frontend-blue
+  labels:
+    app: frontend
+    version: blue
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: frontend
+      version: blue
   template:
     metadata:
       labels:
         app: frontend
+        version: blue
     spec:
       containers:
       - name: frontend
         image: visheshrwl/uber-like-app-frontend:latest
         ports:
         - containerPort: 80
-  strategy:
-    canary:
-      steps:
-      - setWeight: 20
-      - pause: {}
-      - setWeight: 100
-      - pause: {}
-      analysis:
-        templates:
-        - templateName: frontend-analysis
-        interval: 1m
-        maxRetries: 3
-        failureCondition: 
-          - errorRate > 0.1
 
 ---
-
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: uber-like-app-backend
+  name: uber-like-app-frontend-green
+  labels:
+    app: frontend
+    version: green
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: backend
+      app: frontend
+      version: green
   template:
     metadata:
       labels:
-        app: backend
+        app: frontend
+        version: green
     spec:
       containers:
-      - name: backend
-        image: visheshrwl/uber-like-app-backend:latest
+      - name: frontend
+        image: visheshrwl/uber-like-app-frontend:latest
         ports:
-        - containerPort: 8080
-  strategy:
-    canary:
-      steps:
-      - setWeight: 20
-      - pause: {}
-      - setWeight: 100
-      - pause: {}
-      analysis:
-        templates:
-        - templateName: backend-analysis
-        interval: 1m
-        maxRetries: 3
-        failureCondition: 
-          - errorRate > 0.1
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+    version: blue  # Initially blue
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
