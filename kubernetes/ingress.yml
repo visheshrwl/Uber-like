@@ -4,8 +4,8 @@ metadata:
   name: uber-like-app-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/use-http2: "true"  # Optional: Enable HTTP/2 support
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"  # Specify protocol if necessary
+    nginx.ingress.kubernetes.io/use-http2: "true"  
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP" 
 spec:
   rules:
   - host: your-app-domain.com
@@ -15,13 +15,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: uber-like-app-frontend  # Match the Rollout service name
+            name: frontend-service 
             port:
               number: 80
       - path: /api
         pathType: Prefix
         backend:
           service:
-            name: uber-like-app-backend  # Match the Rollout service name
+            name: backend-service  
             port:
               number: 8080
