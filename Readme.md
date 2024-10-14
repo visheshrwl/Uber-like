@@ -16,7 +16,7 @@ This repository contains the codebase for an Uber-like application providing bot
 <table border="1">
   <tr>
       <td><img src="https://github.com/user-attachments/assets/82287ad0-2c5f-419f-ae49-5283fcc6fcfd" alt="Discord Logo" width="50"></td>
-      <td><a href="https://discord.gg/FZxBRpTEeH"> Join our Official Discord Server </a></td>
+      <td><a href="[https://discord.gg/FZxBRpTEeH](https://discord.gg/pCdrQEXG)"> Join our Official Discord Server </a></td>
   </tr>
 </table>
 
