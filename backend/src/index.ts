@@ -1,7 +1,10 @@
 import 'reflect-metadata';
+import dotenv from 'dotenv';
+dotenv.config();
 import { createConnection } from 'typeorm';
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
+import helmet from 'helmet';
 import buildSchema from 'type-graphql';
 import redis from 'redis';
 import { KafkaClient, Producer } from 'kafka-node';
@@ -10,6 +13,7 @@ import { TripResolver } from './resolvers/TripResolver';
 
 const startServer = async () => {
   const app = express();
+  app.use(helmet());
 
   const schema = await buildSchema({
     resolvers: [UserResolver, TripResolver],

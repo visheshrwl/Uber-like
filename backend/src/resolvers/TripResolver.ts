@@ -1,6 +1,18 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql';
 import { Trip } from '../entity/Ride';
 import axios from 'axios';
+import { validateOrReject, IsNotEmpty, Length } from 'class-validator';
+import sanitizeHtml from 'sanitize-html';
+
+class TripInput {
+  @IsNotEmpty()
+  @Length(5, 100)
+  origin!: string;
+
+  @IsNotEmpty()
+  @Length(5, 100)
+  destination!: string;
+}
 
 @Resolver()
 export class TripResolver {
@@ -14,7 +26,18 @@ export class TripResolver {
     @Arg('origin') origin: string,
     @Arg('destination') destination: string,
   ) {
-    const googleMapsApiKey = '1274d7780f57033ed9118ea96db99182';
+    // Sanitize inputs
+    origin = sanitizeHtml(origin);
+    destination = sanitizeHtml(destination);
+
+    const tripInput = new TripInput();
+    tripInput.origin = origin;
+    tripInput.destination = destination;
+
+    // Validate inputs
+    await validateOrReject(tripInput);
+
+    const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY!;
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&departure_time=now&key=${googleMapsApiKey}&traffic_model=best_guess`;
 
     let routeData;

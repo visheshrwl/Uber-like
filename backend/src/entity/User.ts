@@ -10,6 +10,9 @@ import {
 import { Ride } from './Ride';
 import { Delivery } from './Delivery';
 import { Booking } from './Booking';
+import { IsEmail, IsNotEmpty, Length } from 'class-validator';
+import { RefreshToken } from './RefreshTokens';
+
 
 @Entity()
 export class User {
@@ -17,16 +20,24 @@ export class User {
   id: number;
 
   @Column()
+  @IsNotEmpty()
+  @Length(2, 50)
   name: string;
 
   @Column({ unique: true })
+  @IsEmail()
   email: string;
 
   @Column()
+  @IsNotEmpty()
+  @Length(6, 100)
   password: string;
 
   @OneToMany(() => Ride, (ride) => ride.user)
   rides: Ride[];
+
+  @OneToMany(() => RefreshToken, (refreshToken: RefreshToken) => refreshToken.user)
+  refreshTokens!: RefreshToken[];
 
   @OneToMany(() => Delivery, (delivery) => delivery.user)
   deliveries: Delivery[];
