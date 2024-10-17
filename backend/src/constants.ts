@@ -9,6 +9,8 @@ export const DB_NAME = process.env.DB_NAME || 'uber_like_app';
 
 // JWT Configuration
 export const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
+export const JWT_EXPIRATION = '1h'; // Token expiration time
+export const JWT_ALGORITHM = 'RS256'; // Secure algorithm
 
 // Server Configuration
 export const PORT = process.env.PORT || 4000;

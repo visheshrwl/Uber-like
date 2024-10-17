@@ -9,6 +9,8 @@ import {
 } from 'typeorm';
 import { User } from './User';
 import { Booking } from './Booking';
+import { IsNotEmpty, Length, IsNumber, IsString } from 'class-validator';
+
 
 @Entity()
 export class Delivery {
@@ -16,18 +18,26 @@ export class Delivery {
   id: number;
 
   @Column()
+  @IsNotEmpty()
+  @Length(5, 100)
   pickupLocation: string;
 
   @Column()
+  @IsNotEmpty()
+  @Length(5, 100)
   dropoffLocation: string;
 
   @Column()
+  @IsNotEmpty()
+  @Length(5, 255)
   packageDetails: string;
 
   @Column()
+  @IsNumber()
   deliveryFee: number;
 
   @Column()
+  @IsString()
   status: string;
 
   @ManyToOne(() => User, (user) => user.deliveries)
