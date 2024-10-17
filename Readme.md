@@ -158,7 +158,8 @@ kubectl apply -f kubernetes/
 [![Contributors](https://contrib.rocks/image?repo=visheshrwl/Uber-like)](https://github.com/visheshrwl/Uber-like/graphs/contributors)
 
 ---
-
+## 📃LICENSE
+This project is licensed under the MIT License - see the [MIT License](LICENSE) file for details.
 
 ## Additional Recommendations
 
