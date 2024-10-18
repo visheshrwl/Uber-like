@@ -85,7 +85,7 @@ The CI/CD pipeline is set up using GitHub Actions. It builds and deploys Docker 
 We’re excited to have you contribute to this *Ice Cream Parlour Website* project! Follow these simple steps to get started:
 
 1. **🍴 Fork the Repository**  
-   - Go to the [repository page](https://github.com/tushargupta1504/Medical-Website/fork).
+   - Go to the [repository page](https://github.com/visheshrwl/uber-like).
    - Click the *Fork* button (top right). This creates a copy of the project in your GitHub account.
 
 2. **💻 Clone Your Fork**  
@@ -130,7 +130,7 @@ We’re excited to have you contribute to this *Ice Cream Parlour Website* proje
      
 
 8. **🔄 Create a Pull Request (PR)** 
-   - Go back to the original repository [here](https://github.com/tushargupta1504/Medical-Website/pulls?q=is%3Aopen+is%3Apr).
+   - Go back to the original repository [here](https://github.com/visheshrwl/uber-like/pulls?q=is%3Aopen+is%3Apr).
    - Click the *Compare & pull request* button.
    - Write a short description of your changes and submit the pull request (PR).
 
