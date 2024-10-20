@@ -96,8 +96,8 @@ We’re excited to have you contribute to this *Ice Cream Parlour Website* proje
 2. **💻 Clone Your Fork**  
    - Once the repository is forked, clone it to your local machine. Open your terminal and run:
     ```bash
-     git clone https://github.com/your-username/uber-like-app.git
-    cd uber-like-app
+     git clone https://github.com/your-username/Uber-like.git
+    cd uber-like
     ```
 
      
