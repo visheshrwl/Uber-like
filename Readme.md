@@ -10,6 +10,11 @@ This repository contains the codebase for an Uber-like application providing bot
 <div align="center">
 <p>
 
+<h2>Repository Owner</h2>
+<p>This repository is maintained by <strong>Vishesh Rawal</strong>.</p>
+<p>LinkedIn Profile : <a href="https://linkedin.com/in/visheshrawal" target="_blank">LinkedIn</a>.</p>
+
+
 
 ## 🔗 Important Links 🔗
 
