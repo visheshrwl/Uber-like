@@ -106,8 +106,7 @@ We’re excited to have you contribute to this *Ice Cream Parlour Website* proje
 3. **🌿 Create a New Branch** 
    - Before making any changes, create a new branch for your work:
     ``` bash
-     git checkout
-     -b your-branch-name
+     git checkout -b your-branch-name
     ```
      
    - Choose a branch name that describes what you're working on, such as fix-navbar or add-contact-form.
