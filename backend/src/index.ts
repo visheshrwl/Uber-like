@@ -27,8 +27,10 @@ const startServer = async () => {
       console.log('Connected to the database');
 
       const redisClient = redis.createClient({
-        host: 'redis-server',
-        port: 6379,
+        socket :{
+          host: 'redis-server',
+          port: 6379,
+        }
       });
       redisClient.on('connect', () => {
         console.log('Connected to Redis');
