@@ -5,33 +5,52 @@ services:
     build:
       context: ./frontend
     ports:
-      - "3000:80"
+      - "3000:80"        # Exposing frontend on port 3000
     depends_on:
       - backend
+    networks:
+      - my_network        # Using a shared network
 
   backend:
     build:
       context: ./backend
     ports:
-      - "8080:8080"
+      - "8080:8080"       # Exposing backend on port 8080
     depends_on:
       - redis
       - kafka
+    environment:
+      KAFKA_BROKER: kafka:9092
+      REDIS_HOST: redis
+    networks:
+      - my_network        # Using a shared network
 
   redis:
     image: redis:latest
     ports:
-      - "6379:6379"
+      - "6379:6379"       # Exposing Redis port 6379
+    networks:
+      - my_network
 
   kafka:
     image: wurstmeister/kafka:latest
     ports:
-      - "9092:9092"
+      - "9092:9092"       # Exposing Kafka port 9092
     environment:
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
+    networks:
+      - my_network
 
   zookeeper:
     image: wurstmeister/zookeeper:latest
     ports:
-      - "2181:2181"
+      - "2181:2181"       # Exposing Zookeeper port 2181
+    networks:
+      - my_network
+
+networks:
+  my_network:              # Define a shared network for inter-service communication
+    driver: bridge
