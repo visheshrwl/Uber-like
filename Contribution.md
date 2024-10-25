@@ -170,7 +170,7 @@ Your pull request will now be available for review by the project maintainers. T
 
 # For Help And Support 💬
 
-- Admin Github Profile:- [Kushal Das](https://github.com/visheshrwl)
+- Admin Github Profile:- [Vishesh Rawal](https://github.com/visheshrwl)
 - Contact :- [LinkedIn](https://linkedin.com/in/visheshrawal)
 
 <br>
