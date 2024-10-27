@@ -1,10 +1,25 @@
-/* Header.css */
+/* src/component/header.css */
 .header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: relative; /* Or fixed, based on your preference */
-    width: 100%;
-  }
-  
+  background-color: #333; /* Dark background */
+  color: #ffffff; /* White text for contrast */
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  position: relative; /* Change to 'fixed' if you want the header to stay at the top on scroll */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #ffffff; /* Ensures text is white and visible */
+}
+
+/* Optional styling to make it more visually appealing */
+.header h1 {
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

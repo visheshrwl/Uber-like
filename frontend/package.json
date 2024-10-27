@@ -14,8 +14,10 @@
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.5",
     "axios": "^1.7.7",
+    "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
