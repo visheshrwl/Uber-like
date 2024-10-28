@@ -6,6 +6,7 @@ import FaqSection from "./component/faqsection.jsx";
 import Dashboard from "./component/Dashboard.jsx";
 import RideRequestForm from "./component/RideForm.jsx";
 import RideStatus from "./component/RideStatus.jsx";
+import RideTracking from "./component/RideTracking.jsx";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/ride-request" element={<RideRequestForm />} />
         <Route path="/dashboard/ride-status" element={<RideStatus />} />
+        <Route path="/dashboard/ride-tracking" element={<RideTracking />} />
       </Routes>
     </Router>
   );
