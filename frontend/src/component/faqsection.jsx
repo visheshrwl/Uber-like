@@ -1,5 +1,5 @@
 // FaqSection.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -10,6 +10,13 @@ import Header from './header';  // Adjust the path based on your folder structur
 import Footer from './footer';
 
 const FaqSection = () => {
+  // State to keep track of the currently expanded accordion
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
     <div>
       {/* Header Component */}
@@ -22,7 +29,7 @@ const FaqSection = () => {
         </Typography>
 
         {/* First FAQ */}
-        <Accordion>
+        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary>
             <Typography>What is this project about?</Typography>
           </AccordionSummary>
@@ -34,7 +41,7 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Second FAQ */}
-        <Accordion>
+        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
           <AccordionSummary>
             <Typography>How do I track my ride?</Typography>
           </AccordionSummary>
@@ -46,7 +53,7 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Third FAQ */}
-        <Accordion>
+        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
           <AccordionSummary>
             <Typography>How to accept or reject a ride request?</Typography>
           </AccordionSummary>
