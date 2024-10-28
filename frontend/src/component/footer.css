@@ -1,11 +1,18 @@
-/* Footer.css */
+/* src/component/footer.css */
 .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative; /* Or fixed, based on your preference */
-    width: 100%;
-    bottom: 0;
-  }
-  
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Additional padding for footer text */
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
