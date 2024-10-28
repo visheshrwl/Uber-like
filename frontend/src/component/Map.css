@@ -1,0 +1,52 @@
+/* src/component/Map.css */
+
+.map-container {
+    position: relative;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.search-bar, .filter-bar {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #555;
+}
+
+.filter-bar select {
+    padding: 8px;
+    font-size: 16px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+}
+
+.filter-bar label {
+    font-size: 16px;
+    margin-right: 8px;
+}

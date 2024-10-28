@@ -12,12 +12,15 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.5",
     "@mui/material": "^6.1.5",
     "@react-google-maps/api": "^2.20.3",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
+    "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
