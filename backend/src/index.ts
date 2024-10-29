@@ -31,6 +31,7 @@ const startServer = async () => {
     },
   });
 
+  app.use("/api" , require("./services/route.ts"))
   createConnection()
     .then(async () => {
       console.log('Connected to the database');
