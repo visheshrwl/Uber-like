@@ -22,6 +22,15 @@ const startServer = async () => {
   const server = new ApolloServer({ schema });
   server.applyMiddleware({ app });
 
+
+  // Backend WebSocket setup with Socket.IO
+  const io = require("socket.io")(server, {
+    cors: {
+      origin: "http://localhost:8080",
+      methods: ["GET", "POST"],
+    },
+  });
+
   createConnection()
     .then(async () => {
       console.log('Connected to the database');
