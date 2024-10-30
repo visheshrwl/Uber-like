@@ -1,7 +1,9 @@
-// src/components/RideStatus.js
+// src/components/RideStatus.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
+import Header from './header';
 import Footer from './footer';
 
 const RideStatus = () => {
@@ -23,9 +25,10 @@ const RideStatus = () => {
 
   return (
     <div>
+      <Header />
       <h2>Ride Status</h2>
       <p>Status: {status}</p>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

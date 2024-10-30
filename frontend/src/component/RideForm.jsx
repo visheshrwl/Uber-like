@@ -1,8 +1,10 @@
-// src/components/RideRequestForm.js
+// src/components/RideForm.jsx
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
+import Header from './header';
 import Footer from './footer';
 
 const RideRequestForm = () => {
@@ -13,7 +15,6 @@ const RideRequestForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Call API to request a ride
     try {
       const response = await axios.post('/api/ride-request', {
         pickupLocation,
@@ -30,10 +31,10 @@ const RideRequestForm = () => {
   };
 
   return (
-   <div>
-     <form onSubmit={handleSubmit}>
-      <h2>Request a Ride</h2>
-      <div>
+    <div>
+      <Header />
+      <form onSubmit={handleSubmit}>
+        <h2>Request a Ride</h2>
         <label>Pickup Location:</label>
         <input
           type="text"
@@ -41,8 +42,6 @@ const RideRequestForm = () => {
           onChange={(e) => setPickupLocation(e.target.value)}
           required
         />
-      </div>
-      <div>
         <label>Drop Location:</label>
         <input
           type="text"
@@ -50,11 +49,10 @@ const RideRequestForm = () => {
           onChange={(e) => setDropLocation(e.target.value)}
           required
         />
-      </div>
-      <button type="submit">Submit Request</button>
-    </form>
-    <Footer/>
-   </div>
+        <button type="submit">Submit Request</button>
+      </form>
+      <Footer />
+    </div>
   );
 };
 
