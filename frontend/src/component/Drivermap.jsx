@@ -8,7 +8,7 @@ import './Map.css';
 import './header.css';
 import './footer.css';
 
-// Mock data for drivers with statuses
+
 const mockDriverData = [
     { id: 1, name: 'Driver 1', status: 'Available', coordinates: [51.505, -0.09] },
     { id: 2, name: 'Driver 2', status: 'Busy', coordinates: [51.515, -0.1] },
