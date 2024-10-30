@@ -2,7 +2,7 @@ const API_URL = process.env.REACT_APP_BACKEND_API_URL;
 
 const RouteService = {
   getOptimizedRoute: async (driverLocation, destination) => {
-    const response = await fetch(`${API_URL}/optimize-route`, {
+    const response = await fetch(`${API_URL}/v1/optimize-route`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

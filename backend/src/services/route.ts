@@ -1,32 +1,55 @@
-const express = require('express');
-const axios = require('axios');
+import express from 'express';
+import { z } from 'zod';
+import { fetchOptimizedRoute } from './googleMapService';
+
 const router = express.Router();
 
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY; // Make sure to add this to your .env file
+const routeSchema = z.object({
+  start: z.object({
+    lat: z.number(),
+    lng: z.number(),
+  }),
+  end: z.object({
+    lat: z.number(),
+    lng: z.number(),
+  }),
+});
 
 router.post('/optimize-route', async (req, res) => {
-  const { start, end } = req.body;
-
   try {
-    const response = await axios.get(
-      `https://maps.googleapis.com/maps/api/directions/json?origin=${start.lat},${start.lng}&destination=${end.lat},${end.lng}&key=${GOOGLE_MAPS_API_KEY}`
-    );
+    routeSchema.parse(req.body);
 
-    if (response.data.routes.length === 0) {
-      return res.status(404).json({ error: 'No route found' });
-    }
+    const { start, end } = req.body;
 
-    const route = response.data.routes[0];
-    const eta = Math.ceil(route.legs[0].duration.value / 60); // ETA in minutes
+    const { optimizedRoute, eta } = await fetchOptimizedRoute(start, end);
 
     res.json({
-      optimizedRoute: route,
+      optimizedRoute,
       eta,
     });
-  } catch (error) {
-    console.error('Error fetching route:', error);
+  } catch (error: any) {
+    if (error instanceof z.ZodError) {
+      console.error('Validation error:', error.errors);
+      return res
+        .status(400)
+        .json({ error: 'Invalid input', details: error.errors });
+    }
+
+    if (error.message === 'No route found') {
+      console.warn('No route found for the provided coordinates:', {
+        start,
+        end,
+      });
+      return res.status(404).json({ error: error.message });
+    }
+
+    console.error('Error fetching route:', {
+      message: error.message,
+      stack: error.stack,
+      requestBody: req.body,
+    });
     res.status(500).json({ error: 'Failed to fetch optimized route' });
   }
 });
 
-module.exports = router;
+export default router;
