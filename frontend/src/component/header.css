@@ -7,4 +7,6 @@
     position: relative; /* Or fixed, based on your preference */
     width: 100%;
   }
-  
+  .header-title {
+    color: #ffffff; /* Ensure text color is white for visibility */
+}

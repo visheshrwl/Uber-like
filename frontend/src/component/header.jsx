@@ -1,12 +1,13 @@
+// src/component/header.jsx
 import React from 'react';
-import './header.css'; 
+import './header.css';
 
 const Header = () => {
-  return (
-    <header className="header">
-      <h1>Ride History</h1>
-    </header>
-  );
+    return (
+        <header className="header">
+            <h1><span className="header-title">Campus Sarthi</span></h1>
+        </header>
+    );
 };
 
 export default Header;
