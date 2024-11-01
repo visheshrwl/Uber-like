@@ -1,28 +1,19 @@
 // FaqSection.jsx
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-=======
+
 import React, { useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"; // Import the arrow icon
->>>>>>> 1fabd270fbe3d628f813b9153619db6f3ebe7f26
+
 
 // Import Header and Footer components
 import Header from "./header"; // Adjust the path based on your folder structure
 import Footer from "./footer";
 
 const FaqSection = () => {
-<<<<<<< HEAD
   // State to keep track of the currently expanded accordion
-=======
->>>>>>> 1fabd270fbe3d628f813b9153619db6f3ebe7f26
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -56,11 +47,9 @@ const FaqSection = () => {
         </Typography>
 
         {/* First FAQ */}
-<<<<<<< HEAD
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary>
             <Typography>What is this project about?</Typography>
-=======
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
@@ -94,7 +83,6 @@ const FaqSection = () => {
             >
               What is this project about?
             </Typography>
->>>>>>> 1fabd270fbe3d628f813b9153619db6f3ebe7f26
           </AccordionSummary>
           <AccordionDetails
             style={{
@@ -112,11 +100,9 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Second FAQ */}
-<<<<<<< HEAD
         <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
           <AccordionSummary>
             <Typography>How do I track my ride?</Typography>
-=======
         <Accordion
           expanded={expanded === "panel2"}
           onChange={handleChange("panel2")}
@@ -150,7 +136,6 @@ const FaqSection = () => {
             >
               How do I track my ride?
             </Typography>
->>>>>>> 1fabd270fbe3d628f813b9153619db6f3ebe7f26
           </AccordionSummary>
           <AccordionDetails
             style={{
@@ -167,11 +152,9 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Third FAQ */}
-<<<<<<< HEAD
         <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
           <AccordionSummary>
             <Typography>How to accept or reject a ride request?</Typography>
-=======
         <Accordion
           expanded={expanded === "panel3"}
           onChange={handleChange("panel3")}
@@ -205,7 +188,6 @@ const FaqSection = () => {
             >
               How to accept or reject a ride request?
             </Typography>
->>>>>>> 1fabd270fbe3d628f813b9153619db6f3ebe7f26
           </AccordionSummary>
           <AccordionDetails
             style={{
