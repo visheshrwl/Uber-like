@@ -10,6 +10,7 @@ import { createClient } from 'redis'; // Updated import for Redis
 import { KafkaClient, Producer } from 'kafka-node';
 import { UserResolver } from './resolvers/UserResolver';
 import { TripResolver } from './resolvers/TripResolver';
+import PaymentController from './PaymentController';
 import routeService from './services/route'; // Import the route service
 
 const startServer = async () => {
@@ -32,6 +33,8 @@ const startServer = async () => {
   });
 
   app.use("/api/v1", routeService); // Use the imported route service
+  app.use("/api/v1/payments", PaymentController); // Use the imported route service
+
 
   try {
     await createConnection();

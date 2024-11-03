@@ -10,6 +10,7 @@ import RideStatus from "./component/RideStatus.jsx";
 import RideTracking from "./component/RideTracking.jsx";
 import DriverMap from "./component/Drivermap.jsx";
 import FareEstimate from "./component/FareEstimate.jsx";
+import Payment from "./component/Payments.jsx";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/dashboard/ride-request" element={<RideRequestForm />} />
         <Route path="/DriverMap" element={<DriverMap/>} />
         <Route path="/dashboard/ride-status" element={<RideStatus />} />
+        <Route path="/payments" element={<Payment />} />
 
         <Route path="/dashboard/ride-tracking" element={<RideTracking />} />
 

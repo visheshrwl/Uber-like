@@ -13,7 +13,7 @@ import Header from "./header"; // Adjust the path based on your folder structure
 import Footer from "./footer";
 
 const FaqSection = () => {
-  // State to keep track of the currently expanded accordion
+
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -47,9 +47,7 @@ const FaqSection = () => {
         </Typography>
 
         {/* First FAQ */}
-        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-          <AccordionSummary>
-            <Typography>What is this project about?</Typography>
+
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
@@ -100,9 +98,7 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Second FAQ */}
-        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-          <AccordionSummary>
-            <Typography>How do I track my ride?</Typography>
+
         <Accordion
           expanded={expanded === "panel2"}
           onChange={handleChange("panel2")}
@@ -152,9 +148,7 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Third FAQ */}
-        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-          <AccordionSummary>
-            <Typography>How to accept or reject a ride request?</Typography>
+
         <Accordion
           expanded={expanded === "panel3"}
           onChange={handleChange("panel3")}
