@@ -1,4 +1,5 @@
 // FaqSection.jsx
+
 import React, { useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -6,11 +7,13 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"; // Import the arrow icon
 
+
 // Import Header and Footer components
 import Header from "./header"; // Adjust the path based on your folder structure
 import Footer from "./footer";
 
 const FaqSection = () => {
+
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -44,6 +47,7 @@ const FaqSection = () => {
         </Typography>
 
         {/* First FAQ */}
+
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
@@ -94,6 +98,7 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Second FAQ */}
+
         <Accordion
           expanded={expanded === "panel2"}
           onChange={handleChange("panel2")}
@@ -143,6 +148,7 @@ const FaqSection = () => {
         </Accordion>
 
         {/* Third FAQ */}
+
         <Accordion
           expanded={expanded === "panel3"}
           onChange={handleChange("panel3")}

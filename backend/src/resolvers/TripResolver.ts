@@ -3,6 +3,8 @@ import { Trip } from '../entity/Ride';
 import axios from 'axios';
 import { validateOrReject, IsNotEmpty, Length } from 'class-validator';
 import sanitizeHtml from 'sanitize-html';
+import { getRedisClient } from '../redis';
+; // Ensure this imports your Redis client
 
 class TripInput {
   @IsNotEmpty()
@@ -37,6 +39,17 @@ export class TripResolver {
     // Validate inputs
     await validateOrReject(tripInput);
 
+    // Construct cache key
+    const cacheKey = `trip:${origin}:${destination}`;
+    const redisClient = getRedisClient(); // Get the Redis client instance
+
+    // Check if the route is already cached
+    const cachedTrip = await redisClient.get(cacheKey);
+    if (cachedTrip) {
+      console.log('Returning cached trip data');
+      return JSON.parse(cachedTrip); // Return cached data if available
+    }
+
     const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY!;
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&departure_time=now&key=${googleMapsApiKey}&traffic_model=best_guess`;
 
@@ -58,7 +71,12 @@ export class TripResolver {
     trip.destination = destination;
     trip.trafficDuration = trafficDuration;
     trip.distance = distance;
+
     await trip.save();
+
+    // Store the trip data in Redis with an expiration time of 1 hour
+    await redisClient.set(cacheKey, JSON.stringify(trip), 'EX', 3600);
+    console.log('Trip data cached successfully');
 
     return trip;
   }
