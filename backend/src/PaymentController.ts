@@ -1,6 +1,6 @@
 // backend/routes/paymentRoutes.js
-const express = require('express');
-const Stripe = require('stripe');
+import express from 'express';
+import Stripe from 'stripe';
 const router = express.Router();
 
 // Replace with your Stripe secret key
@@ -24,4 +24,4 @@ router.post('/create-payment-intent', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router

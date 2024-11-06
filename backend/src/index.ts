@@ -11,11 +11,26 @@ import { KafkaClient, Producer } from 'kafka-node';
 import { UserResolver } from './resolvers/UserResolver';
 import { TripResolver } from './resolvers/TripResolver';
 import PaymentController from './PaymentController';
+import googleAuth from './routes/googleAuth';
 import routeService from './services/route'; // Import the route service
+import session from 'express-session';
+import passport from 'passport';
+import './passport'; // Import the passport configuration
 
 const startServer = async () => {
   const app = express();
   app.use(helmet());
+  app.use(
+    session({
+      secret: 'your-session-secret', // Replace with a secure secret
+      resave: false,
+      saveUninitialized: false,
+    })
+  );
+  
+  // Initialize passport and session management
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   const schema = await buildSchema({
     resolvers: [UserResolver, TripResolver],
@@ -34,6 +49,7 @@ const startServer = async () => {
 
   app.use("/api/v1", routeService); // Use the imported route service
   app.use("/api/v1/payments", PaymentController); // Use the imported route service
+  app.use('/', googleAuth);
 
 
   try {
