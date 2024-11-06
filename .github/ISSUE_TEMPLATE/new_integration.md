@@ -1,9 +1,10 @@
 ---
-name: 🔗 New Integration Request
+name: "\U0001F517 New Integration Request"
 about: Propose a new integration (Kafka, Redis, etc.)
 title: "[INTEGRATION] "
-labels: "integration"
-assignees: ""
+labels: ''
+assignees: ''
+
 ---
 
 **Integration Description**

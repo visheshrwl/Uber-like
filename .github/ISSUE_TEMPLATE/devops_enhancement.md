@@ -1,9 +1,10 @@
 ---
-name: 🔧 DevOps/CI-CD Pipeline Enhancement
+name: "\U0001F527 DevOps/CI-CD Pipeline Enhancement"
 about: Propose changes or improvements to the CI/CD pipeline or deployment configurations
 title: "[CI-CD] "
-labels: "devops"
-assignees: ""
+labels: ''
+assignees: ''
+
 ---
 
 **Current Behavior**

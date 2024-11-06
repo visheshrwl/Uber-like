@@ -1,9 +1,10 @@
 ---
-name: ⚡ Performance improvement
+name: "⚡ Performance improvement"
 about: Suggest changes to improve the performance of the application
 title: "[PERFORMANCE] "
-labels: "performance"
-assignees: ""
+labels: performance
+assignees: ''
+
 ---
 
 **Describe the performance issue**

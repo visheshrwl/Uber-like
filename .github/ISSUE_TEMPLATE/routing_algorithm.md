@@ -1,9 +1,10 @@
 ---
-name: 🔄 Advanced Routing Algorithm Enhancement
+name: "\U0001F504 Advanced Routing Algorithm Enhancement"
 about: Propose an enhancement for the routing algorithm used in the app.
 title: "[ALGORITHM] "
-labels: "algorithm"
-assignees: ""
+labels: ''
+assignees: ''
+
 ---
 
 **Current Behavior**
