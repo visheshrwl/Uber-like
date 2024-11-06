@@ -170,6 +170,20 @@ kubectl apply -f kubernetes/
 [![Contributors](https://contrib.rocks/image?repo=visheshrwl/Uber-like)](https://github.com/visheshrwl/Uber-like/graphs/contributors)
 
 ---
+
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for visheshrwl/Uber-like](https://reporoster.com/stars/visheshrwl/Uber-like)](https://github.com/visheshrwl/Uber-like/stargazers)
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @nastyox/Repo-Roster](https://reporoster.com/forks/visheshrwl/Uber-like)](https://github.com/visheshrwl/Uber-like/network/members)
+
+---
 ## 📃LICENSE
 This project is licensed under the MIT License - see the [MIT License](LICENSE) file for details.
 
