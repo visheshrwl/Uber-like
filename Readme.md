@@ -44,6 +44,12 @@ This repository contains the codebase for an Uber-like application providing bot
 </div>
 
 ---
+
+## 📑 For Table of Contents
+1. Navigate to the top-right corner of the Readme file.
+2. Click on the **list-view**(three horizontal lines and three vertical dots) icon.
+3. A dropdown will appear with the Table of Contents.
+---
 ## 📋 Participating Programs
 
 | Name                  | Logo                                                      | Purpose                                                                                                      |
